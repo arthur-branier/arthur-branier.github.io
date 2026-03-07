@@ -101,6 +101,7 @@
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">Voir les projets</a>
         <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        <a id="cv-link" class="btn btn-ghost" download>Telecharger le CV</a>
       </div>
     </section>
 
@@ -262,7 +263,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Disponibilite</div>
-          <span>Stage 2025</span>
+          <span>Stage — mi-mai a fin juin 2025</span>
         </div>
       </div>
     </section>
@@ -274,6 +275,10 @@
   </footer>
 
   <script>
+    // CV
+    var cv = document.getElementById("cv-link");
+    cv.href = "CV_Branier_Arthur_Stage_BTS_CIEL_A_premiere_annee.pdf";
+
     // Liens projets
     var links = {
       p1: "https://github.com/arthur-branier/archlinux-hyprland-setup",
