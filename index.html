@@ -16,11 +16,22 @@
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 56px; border-bottom: 1px solid var(--border); background: rgba(13,13,13,.85); backdrop-filter: blur(12px); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 56px; border-bottom: 1px solid var(--border); background: rgba(13,13,13,.92); backdrop-filter: blur(12px); }
     .nav-logo { font-family: var(--mono); font-size: .8rem; color: var(--accent); letter-spacing: .08em; text-decoration: none; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--bright); }
+
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .burger span { display: block; width: 22px; height: 1.5px; background: var(--muted); transition: all .25s; }
+    .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--bright); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--bright); }
+
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; background: rgba(13,13,13,.97); border-bottom: 1px solid var(--border); z-index: 99; padding: 1.5rem 2.5rem; flex-direction: column; gap: 1.2rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+    .mobile-menu a:hover { color: var(--accent); }
 
     main { padding-top: 56px; }
     section { padding: 7rem 2.5rem; max-width: 860px; margin: 0 auto; }
@@ -38,13 +49,21 @@
     .btn-ghost { border: 1px solid var(--border); color: var(--text); }
     .btn-ghost:hover { border-color: var(--text); color: var(--bright); }
 
+    .status-badge { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; color: var(--accent); margin-bottom: 1.8rem; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 1.4s ease-in-out infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
+
     #about p { font-weight: 300; color: var(--text); max-width: 620px; margin-bottom: 1rem; }
     #about p strong { color: var(--bright); font-weight: 400; }
 
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1px; border: 1px solid var(--border); }
     .skill-cell { padding: 1.4rem 1.2rem; border: 1px solid var(--border); background: var(--surface); }
-    .skill-cell-label { font-family: var(--mono); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
-    .skill-cell-items { font-size: .82rem; color: var(--text); line-height: 1.9; }
+    .skill-cell-label { font-family: var(--mono); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; }
+    .skill-item { margin-bottom: .65rem; }
+    .skill-item-name { font-size: .82rem; color: var(--text); margin-bottom: .25rem; }
+    .skill-bar-track { height: 2px; background: var(--border); border-radius: 2px; width: 100%; }
+    .skill-bar-fill { height: 2px; border-radius: 2px; background: var(--accent); }
+    .skill-level { font-family: var(--mono); font-size: .58rem; color: var(--muted); letter-spacing: .06em; margin-top: .18rem; }
 
     .projects-list { display: flex; flex-direction: column; gap: 1px; }
     .project-card { background: var(--surface); border: 1px solid var(--border); padding: 1.8rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; text-decoration: none; transition: border-color .2s, background .2s; cursor: pointer; }
@@ -69,7 +88,8 @@
 
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
-      .nav-links { gap: 1.2rem; }
+      .nav-links { display: none; }
+      .burger { display: flex; }
       section { padding: 5rem 1.2rem; }
       .contact-grid { grid-template-columns: 1fr; }
       .project-card { grid-template-columns: 1fr; }
@@ -87,12 +107,26 @@
       <li><a href="#projects">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" class="mobile-link">À propos</a>
+    <a href="#skills" class="mobile-link">Compétences</a>
+    <a href="#projects" class="mobile-link">Projets</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
 
   <main>
 
     <section id="hero">
       <p class="hero-eyebrow">BTS CIEL option A — Lille</p>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        &gt; disponible pour un stage — mi-mai à fin juin 2026
+      </div>
       <h1>Arthur Branier<br /><span>Étudiant en informatique</span></h1>
       <p class="hero-sub">
         En BTS CIEL, je touche à pas mal de choses : du C++, des réseaux, de l'électronique.
@@ -130,30 +164,110 @@
     <section id="skills">
       <p class="section-label">Compétences</p>
       <div class="skills-grid">
+
         <div class="skill-cell">
           <div class="skill-cell-label">Systèmes</div>
-          <div class="skill-cell-items">Linux (Arch/EndeavourOS)<br />Hyprland / Wayland<br />Bash / Shell<br />Gestion de services</div>
+          <div class="skill-item">
+            <div class="skill-item-name">Linux (EndeavourOS)</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:45%"></div></div>
+            <div class="skill-level">Débutant+</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Hyprland / Wayland</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:40%"></div></div>
+            <div class="skill-level">Débutant+</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Bash / Shell</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:30%"></div></div>
+            <div class="skill-level">Débutant</div>
+          </div>
         </div>
+
         <div class="skill-cell">
           <div class="skill-cell-label">Programmation</div>
-          <div class="skill-cell-items">C++ (POO, mémoire dynamique)<br />Algorithmique<br />Git / GitHub</div>
+          <div class="skill-item">
+            <div class="skill-item-name">C++ (POO)</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:35%"></div></div>
+            <div class="skill-level">Débutant</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Algorithmique</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:30%"></div></div>
+            <div class="skill-level">Débutant</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Git / GitHub</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Bases — commits, push, repos</div>
+          </div>
         </div>
+
         <div class="skill-cell">
           <div class="skill-cell-label">Réseaux</div>
-          <div class="skill-cell-items">TCP/IP, UDP<br />Cisco Packet Tracer<br />Routage, VLAN<br />SSH, protocoles</div>
+          <div class="skill-item">
+            <div class="skill-item-name">Cisco Packet Tracer</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:30%"></div></div>
+            <div class="skill-level">Débutant</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">TCP/IP, UDP</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Notions théoriques — cours BTS</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Routage, VLAN, SSH</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Notions théoriques — cours BTS</div>
+          </div>
         </div>
+
         <div class="skill-cell">
           <div class="skill-cell-label">Électronique</div>
-          <div class="skill-cell-items">PSIM (simulation)<br />Circuits RC/RL<br />Impédances complexes</div>
+          <div class="skill-item">
+            <div class="skill-item-name">Circuits RC/RL</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Notions théoriques — cours BTS</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Impédances complexes</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Notions théoriques — cours BTS</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">PSIM (simulation)</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Notions théoriques — cours BTS</div>
+          </div>
         </div>
+
         <div class="skill-cell">
           <div class="skill-cell-label">Outils</div>
-          <div class="skill-cell-items">Codelite<br />PSIM, Packet Tracer<br />Tailscale<br />Hyprland dotfiles</div>
+          <div class="skill-item">
+            <div class="skill-item-name">CodeLite</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:40%"></div></div>
+            <div class="skill-level">Débutant+</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Docker</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:25%"></div></div>
+            <div class="skill-level">Débutant</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Tailscale</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:35%"></div></div>
+            <div class="skill-level">Débutant</div>
+          </div>
         </div>
+
         <div class="skill-cell">
           <div class="skill-cell-label">Langue</div>
-          <div class="skill-cell-items">Français (natif)<br />Anglais technique (B2)</div>
+          <div class="skill-item">
+            <div class="skill-item-name">Français</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:100%"></div></div>
+            <div class="skill-level">Natif</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-name">Anglais technique</div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%"></div></div>
+            <div class="skill-level">B2</div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -263,7 +377,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Disponibilité</div>
-          <span>Stage — mi-mai à fin juin 2025</span>
+          <span>Stage — mi-mai à fin juin 2026</span>
         </div>
       </div>
     </section>
@@ -271,15 +385,13 @@
   </main>
 
   <footer>
-    2025 Arthur Branier — GitHub Pages
+    2026 Arthur Branier — GitHub Pages
   </footer>
 
   <script>
-    // CV
     var cv = document.getElementById("cv-link");
     cv.href = "CV_Branier_Arthur_Stage_BTS_CIEL_A_premiere_annee.pdf";
 
-    // Liens projets
     var links = {
       p1: "https://github.com/arthur-branier/archlinux-hyprland-setup",
       p2: "https://github.com/arthur-branier/game-streaming",
@@ -291,16 +403,27 @@
       if (el) el.href = links[id];
     }
 
-    // Email
     var u = "branierarthur";
     var d = "gmail" + "." + "com";
     var ml = document.getElementById("mail-link");
     ml.href = "mailto:" + u + "@" + d;
     ml.textContent = u + "@" + d;
 
-    // GitHub
     var gh = document.getElementById("gh-link");
     gh.href = "https://github.com/arthur-branier";
+
+    var burger = document.getElementById("burger");
+    var mobileMenu = document.getElementById("mobile-menu");
+    burger.addEventListener("click", function() {
+      burger.classList.toggle("open");
+      mobileMenu.classList.toggle("open");
+    });
+    document.querySelectorAll(".mobile-link").forEach(function(link) {
+      link.addEventListener("click", function() {
+        burger.classList.remove("open");
+        mobileMenu.classList.remove("open");
+      });
+    });
   </script>
 
 </body>
