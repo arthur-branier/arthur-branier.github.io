@@ -3,282 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arthur — Portfolio</title>
+  <title>Arthur Branier — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:       #0d0d0d;
-      --surface:  #141414;
-      --border:   #242424;
-      --muted:    #555;
-      --text:     #c8c8c8;
-      --bright:   #f0f0f0;
-      --accent:   #5cffb0;
-      --mono:     'DM Mono', monospace;
-      --sans:     'DM Sans', sans-serif;
+      --bg: #0d0d0d; --surface: #141414; --border: #242424;
+      --muted: #555; --text: #c8c8c8; --bright: #f0f0f0;
+      --accent: #5cffb0; --mono: 'DM Mono', monospace; --sans: 'DM Sans', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 15px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 56px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(13,13,13,.85);
-      backdrop-filter: blur(12px);
-    }
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: .8rem;
-      color: var(--accent);
-      letter-spacing: .08em;
-      text-decoration: none;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 56px; border-bottom: 1px solid var(--border); background: rgba(13,13,13,.85); backdrop-filter: blur(12px); }
+    .nav-logo { font-family: var(--mono); font-size: .8rem; color: var(--accent); letter-spacing: .08em; text-decoration: none; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: .72rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color .2s;
-    }
+    .nav-links a { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--bright); }
 
-    /* ── LAYOUT ── */
     main { padding-top: 56px; }
     section { padding: 7rem 2.5rem; max-width: 860px; margin: 0 auto; }
-    .section-label {
-      font-family: var(--mono);
-      font-size: .7rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2.5rem;
-    }
+    .section-label { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 2.5rem; }
 
-    /* ── HERO ── */
-    #hero {
-      min-height: calc(100vh - 56px);
-      display: flex; flex-direction: column; justify-content: center;
-      padding-top: 0;
-    }
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: .75rem;
-      color: var(--muted);
-      letter-spacing: .12em;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp .6s .1s forwards;
-    }
-    h1 {
-      font-family: var(--sans);
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      font-weight: 300;
-      color: var(--bright);
-      line-height: 1.1;
-      letter-spacing: -.02em;
-      opacity: 0;
-      animation: fadeUp .6s .25s forwards;
-    }
+    #hero { min-height: calc(100vh - 56px); display: flex; flex-direction: column; justify-content: center; padding-top: 0; }
+    .hero-eyebrow { font-family: var(--mono); font-size: .75rem; color: var(--muted); letter-spacing: .12em; margin-bottom: 1.5rem; }
+    h1 { font-family: var(--sans); font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 300; color: var(--bright); line-height: 1.1; letter-spacing: -.02em; }
     h1 span { color: var(--accent); }
-    .hero-sub {
-      margin-top: 1.6rem;
-      max-width: 440px;
-      font-weight: 300;
-      color: var(--muted);
-      opacity: 0;
-      animation: fadeUp .6s .4s forwards;
-    }
-    .hero-cta {
-      margin-top: 2.8rem;
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp .6s .55s forwards;
-    }
-    .btn {
-      font-family: var(--mono);
-      font-size: .72rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: .65rem 1.4rem;
-      border-radius: 2px;
-      transition: all .2s;
-      display: inline-block;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #0d0d0d;
-      font-weight: 500;
-    }
+    .hero-sub { margin-top: 1.6rem; max-width: 440px; font-weight: 300; color: var(--muted); }
+    .hero-cta { margin-top: 2.8rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: .65rem 1.4rem; border-radius: 2px; transition: all .2s; display: inline-block; }
+    .btn-primary { background: var(--accent); color: #0d0d0d; font-weight: 500; }
     .btn-primary:hover { background: #7dffbf; }
-    .btn-ghost {
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); }
     .btn-ghost:hover { border-color: var(--text); color: var(--bright); }
 
-    /* ── À PROPOS ── */
-    #about p {
-      font-weight: 300;
-      color: var(--text);
-      max-width: 620px;
-      margin-bottom: 1rem;
-    }
+    #about p { font-weight: 300; color: var(--text); max-width: 620px; margin-bottom: 1rem; }
     #about p strong { color: var(--bright); font-weight: 400; }
 
-    /* ── COMPÉTENCES ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-      gap: 1px;
-      border: 1px solid var(--border);
-    }
-    .skill-cell {
-      padding: 1.4rem 1.2rem;
-      border: 1px solid var(--border);
-      background: var(--surface);
-    }
-    .skill-cell-label {
-      font-family: var(--mono);
-      font-size: .65rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: .6rem;
-    }
-    .skill-cell-items {
-      font-size: .82rem;
-      color: var(--text);
-      line-height: 1.9;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1px; border: 1px solid var(--border); }
+    .skill-cell { padding: 1.4rem 1.2rem; border: 1px solid var(--border); background: var(--surface); }
+    .skill-cell-label { font-family: var(--mono); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
+    .skill-cell-items { font-size: .82rem; color: var(--text); line-height: 1.9; }
 
-    /* ── PROJETS ── */
     .projects-list { display: flex; flex-direction: column; gap: 1px; }
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 1.8rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: start;
-      text-decoration: none;
-      transition: border-color .2s, background .2s;
-      cursor: pointer;
-    }
-    .project-card:hover {
-      border-color: var(--accent);
-      background: #141f1a;
-    }
+    .project-card { background: var(--surface); border: 1px solid var(--border); padding: 1.8rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; text-decoration: none; transition: border-color .2s, background .2s; cursor: pointer; }
+    .project-card:hover { border-color: var(--accent); background: #141f1a; }
     .project-card:hover .project-arrow { color: var(--accent); }
-    .project-number {
-      font-family: var(--mono);
-      font-size: .65rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-      margin-bottom: .5rem;
-    }
-    .project-title {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--bright);
-      margin-bottom: .4rem;
-    }
-    .project-desc {
-      font-size: .82rem;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 500px;
-    }
-    .project-tags {
-      display: flex; flex-wrap: wrap; gap: .4rem;
-      margin-top: .9rem;
-    }
-    .tag {
-      font-family: var(--mono);
-      font-size: .62rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: .2rem .55rem;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      border-radius: 2px;
-    }
-    .project-arrow {
-      font-size: 1.1rem;
-      color: var(--border);
-      transition: color .2s;
-      margin-top: .2rem;
-    }
+    .project-number { font-family: var(--mono); font-size: .65rem; color: var(--muted); letter-spacing: .1em; margin-bottom: .5rem; }
+    .project-title { font-size: 1rem; font-weight: 400; color: var(--bright); margin-bottom: .4rem; }
+    .project-desc { font-size: .82rem; font-weight: 300; color: var(--muted); max-width: 500px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+    .tag { font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .55rem; border: 1px solid var(--border); color: var(--muted); border-radius: 2px; }
+    .project-arrow { font-size: 1.1rem; color: var(--border); transition: color .2s; margin-top: .2rem; }
 
-    /* ── CONTACT ── */
     #contact { border-top: 1px solid var(--border); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      border: 1px solid var(--border);
-      margin-top: 1rem;
-    }
-    .contact-item {
-      background: var(--surface);
-      padding: 1.4rem 1.6rem;
-      border: 1px solid var(--border);
-    }
-    .contact-item-label {
-      font-family: var(--mono);
-      font-size: .62rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: .4rem;
-    }
-    .contact-item a, .contact-item span {
-      font-size: .9rem;
-      color: var(--bright);
-      text-decoration: none;
-      font-weight: 300;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); margin-top: 1rem; }
+    .contact-item { background: var(--surface); padding: 1.4rem 1.6rem; border: 1px solid var(--border); }
+    .contact-item-label { font-family: var(--mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+    .contact-item a, .contact-item span { font-size: .9rem; color: var(--bright); text-decoration: none; font-weight: 300; }
     .contact-item a:hover { color: var(--accent); }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2.5rem;
-      font-family: var(--mono);
-      font-size: .65rem;
-      letter-spacing: .1em;
-      color: var(--border);
-      border-top: 1px solid var(--border);
-    }
-
-    /* ── DIVIDER ── */
+    footer { text-align: center; padding: 2.5rem; font-family: var(--mono); font-size: .65rem; letter-spacing: .1em; color: var(--border); border-top: 1px solid var(--border); }
     .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal { opacity: 1; }
 
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
@@ -295,8 +82,8 @@
   <nav>
     <a class="nav-logo" href="#hero">arthur.dev</a>
     <ul class="nav-links">
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#about">A propos</a></li>
+      <li><a href="#skills">Competences</a></li>
       <li><a href="#projects">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -304,13 +91,12 @@
 
   <main>
 
-    <!-- HERO -->
     <section id="hero">
       <p class="hero-eyebrow">BTS CIEL — Villeneuve-d'Ascq</p>
-      <h1>Arthur Branier<br /><span>Étudiant en informatique</span></h1>
+      <h1>Arthur Branier<br /><span>Etudiant en informatique</span></h1>
       <p class="hero-sub">
-        En BTS CIEL, je touche à pas mal de choses : du C++, des réseaux, de l'électronique.
-        En dehors de l'école, je bidouille sous Linux et j'essaie des trucs qui m'intéressent.
+        En BTS CIEL, je touche a pas mal de choses : du C++, des reseaux, de l'electronique.
+        En dehors de l'ecole, je bidouille sous Linux et j'essaie des trucs qui m'interessent.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">Voir les projets</a>
@@ -320,75 +106,70 @@
 
     <hr class="divider" />
 
-    <!-- À PROPOS -->
     <section id="about">
-      <p class="section-label reveal">À propos</p>
-      <p class="reveal">
-        Je suis en première année de <strong>BTS CIEL option A</strong> à Villeneuve-d'Ascq.
-        La formation couvre la cybersécurité, les réseaux, l'électronique et la programmation —
-        c'est dense, mais c'est ce que j'aime.
+      <p class="section-label">A propos</p>
+      <p>
+        Je suis en premiere annee de <strong>BTS CIEL option A</strong> a Villeneuve-d'Ascq.
+        La formation couvre la cybersecurite, les reseaux, l'electronique et la programmation.
       </p>
-      <p class="reveal">
-        À l'école on utilise Debian, ce qui m'a donné envie d'aller plus loin sur Linux.
-        J'ai installé <strong>EndeavourOS</strong> sur mon PC perso et configuré
-        <strong>Hyprland</strong> from scratch — pas parce que c'était utile au départ,
-        mais parce que je voulais comprendre comment ça marche vraiment.
+      <p>
+        A l'ecole on utilise Debian, ce qui m'a donne envie d'aller plus loin sur Linux.
+        J'ai installe <strong>EndeavourOS</strong> et configure <strong>Hyprland</strong> from scratch
+        — pas parce que c'etait utile au depart, mais parce que je voulais comprendre comment ca marche vraiment.
         Depuis c'est mon environnement principal.
       </p>
-      <p class="reveal">
+      <p>
         Je cherche un <strong>stage</strong> pour mettre en pratique ce que j'apprends,
-        dans un environnement où il y a des vraies choses à faire.
+        dans un environnement ou il y a de vraies choses a faire.
       </p>
     </section>
 
     <hr class="divider" />
 
-    <!-- COMPÉTENCES -->
     <section id="skills">
-      <p class="section-label reveal">Compétences</p>
-      <div class="skills-grid reveal">
+      <p class="section-label">Competences</p>
+      <div class="skills-grid">
         <div class="skill-cell">
-          <div class="skill-cell-label">Systèmes</div>
+          <div class="skill-cell-label">Systemes</div>
           <div class="skill-cell-items">Linux (Arch/EndeavourOS)<br />Hyprland / Wayland<br />Bash / Shell<br />Gestion de services</div>
         </div>
         <div class="skill-cell">
           <div class="skill-cell-label">Programmation</div>
-          <div class="skill-cell-items">C++ (POO, mémoire dynamique)<br />Python<br />Algorithmique<br />Git / GitHub</div>
+          <div class="skill-cell-items">C++ (POO, memoire dynamique)<br />Python<br />Algorithmique<br />Git / GitHub</div>
         </div>
         <div class="skill-cell">
-          <div class="skill-cell-label">Réseaux</div>
+          <div class="skill-cell-label">Reseaux</div>
           <div class="skill-cell-items">TCP/IP, UDP<br />Cisco Packet Tracer<br />Routage, VLAN<br />SSH, protocoles</div>
         </div>
         <div class="skill-cell">
-          <div class="skill-cell-label">Électronique</div>
-          <div class="skill-cell-items">Théorème de Thévenin<br />PSIM (simulation)<br />Circuits RC/RL<br />Impédances complexes</div>
+          <div class="skill-cell-label">Electronique</div>
+          <div class="skill-cell-items">Theoreme de Thevenin<br />PSIM (simulation)<br />Circuits RC/RL<br />Impedances complexes</div>
         </div>
         <div class="skill-cell">
           <div class="skill-cell-label">Outils</div>
-          <div class="skill-cell-items">VSCode / Neovim<br />PSIM, Packet Tracer<br />SSH / Moonlight<br />Hyprland dotfiles</div>
+          <div class="skill-cell-items">VSCode / Neovim<br />PSIM, Packet Tracer<br />Docker, Tailscale<br />Hyprland dotfiles</div>
         </div>
         <div class="skill-cell">
           <div class="skill-cell-label">Langue</div>
-          <div class="skill-cell-items">Français (natif)<br />Anglais technique (B2)<br />Documentation EN/FR</div>
+          <div class="skill-cell-items">Francais (natif)<br />Anglais technique (B2)<br />Documentation EN/FR</div>
         </div>
       </div>
     </section>
 
     <hr class="divider" />
 
-    <!-- PROJETS -->
     <section id="projects">
-      <p class="section-label reveal">Projets</p>
-      <div class="projects-list">
+      <p class="section-label">Projets</p>
+      <div class="projects-list" id="projects-list">
 
-        <a class="project-card reveal" href="https://github.com/arthur-branier/archlinux-hyprland-setup" target="_blank">
+        <a class="project-card" id="p1" target="_blank">
           <div>
             <div class="project-number">01</div>
             <div class="project-title">Setup Linux — EndeavourOS + Hyprland</div>
             <div class="project-desc">
-              J'utilisais déjà Debian à l'école et j'avais envie d'essayer autre chose que Windows.
-              J'ai installé EndeavourOS et configuré Hyprland from scratch — gestion du GPU hybride AMD/NVIDIA,
-              dotfiles, scripts. Ça m'a pas mal appris sur comment Linux fonctionne réellement.
+              J'utilisais deja Debian a l'ecole et j'avais envie d'essayer autre chose que Windows.
+              J'ai installe EndeavourOS et configure Hyprland from scratch — gestion du GPU hybride AMD/NVIDIA,
+              dotfiles, scripts. Ca m'a pas mal appris sur comment Linux fonctionne reellement.
             </div>
             <div class="project-tags">
               <span class="tag">Linux</span>
@@ -398,36 +179,36 @@
               <span class="tag">NVIDIA</span>
             </div>
           </div>
-          <div class="project-arrow">↗</div>
+          <div class="project-arrow">&#x2197;</div>
         </a>
 
-        <a class="project-card reveal" href="https://github.com/arthur-branier/game-streaming" target="_blank">
+        <a class="project-card" id="p2" target="_blank">
           <div>
             <div class="project-number">02</div>
             <div class="project-title">Game Streaming — Sunshine / Moonlight</div>
             <div class="project-desc">
-              Juste pour voir si c'était faisable : streamer des jeux depuis mon PC Linux vers mon téléphone
-              sur le réseau local. J'ai configuré Sunshine comme serveur et Moonlight comme client.
-              Ça marche, et j'ai appris des choses sur les flux réseau au passage.
+              Juste pour voir si c'etait faisable : streamer des jeux depuis mon PC Linux vers mon telephone
+              sur le reseau local. J'ai configure Sunshine comme serveur et Moonlight comme client.
+              Ca marche, et j'ai appris des choses sur les flux reseau au passage.
             </div>
             <div class="project-tags">
               <span class="tag">Sunshine</span>
               <span class="tag">Moonlight</span>
-              <span class="tag">Réseau local</span>
+              <span class="tag">Reseau local</span>
               <span class="tag">Linux</span>
             </div>
           </div>
-          <div class="project-arrow">↗</div>
+          <div class="project-arrow">&#x2197;</div>
         </a>
 
-        <a class="project-card reveal" href="https://github.com/arthur-branier" target="_blank">
+        <a class="project-card" id="p3" target="_blank">
           <div>
             <div class="project-number">03</div>
             <div class="project-title">Projets C++ — POO &amp; Algorithmique</div>
             <div class="project-desc">
-              Exercices de programmation orientée objet réalisés en cours : gestion de mémoire dynamique,
-              classes, constructeurs/destructeurs. Aussi quelques algos numériques comme
-              l'estimation de π par Monte Carlo.
+              Exercices de programmation orientee objet realises en cours : gestion de memoire dynamique,
+              classes, constructeurs/destructeurs. Aussi quelques algos numeriques comme
+              l'estimation de pi par Monte Carlo.
             </div>
             <div class="project-tags">
               <span class="tag">C++</span>
@@ -435,16 +216,16 @@
               <span class="tag">Algorithmique</span>
             </div>
           </div>
-          <div class="project-arrow">↗</div>
+          <div class="project-arrow">&#x2197;</div>
         </a>
 
-        <a class="project-card reveal" href="https://github.com/arthur-branier/ia-locale" target="_blank">
+        <a class="project-card" id="p4" target="_blank">
           <div>
             <div class="project-number">04</div>
             <div class="project-title">IA locale — Ollama + Open WebUI + Docker</div>
             <div class="project-desc">
-              Stack d'IA entièrement en local : Ollama comme backend pour faire tourner des modèles LLM,
-              Open WebUI dans Docker comme interface, et Tailscale pour y accéder depuis mon téléphone à distance.
+              Stack d'IA entierement en local : Ollama comme backend pour faire tourner des modeles LLM,
+              Open WebUI dans Docker comme interface, et Tailscale pour y acceder depuis mon telephone a distance.
             </div>
             <div class="project-tags">
               <span class="tag">Ollama</span>
@@ -453,7 +234,7 @@
               <span class="tag">Linux</span>
             </div>
           </div>
-          <div class="project-arrow">↗</div>
+          <div class="project-arrow">&#x2197;</div>
         </a>
 
       </div>
@@ -461,27 +242,26 @@
 
     <hr class="divider" />
 
-    <!-- CONTACT -->
     <section id="contact">
-      <p class="section-label reveal">Contact</p>
-      <p class="reveal" style="font-weight:300; color: var(--muted); margin-bottom: 1.5rem; max-width:480px;">
-        Disponible pour un stage. N'hésite pas à me contacter directement.
+      <p class="section-label">Contact</p>
+      <p style="font-weight:300; color: var(--muted); margin-bottom: 1.5rem; max-width:480px;">
+        Disponible pour un stage. N'hesite pas a me contacter directement.
       </p>
-      <div class="contact-grid reveal">
+      <div class="contact-grid">
         <div class="contact-item">
           <div class="contact-item-label">Email</div>
-          <a href="mailto:branierarthur@gmail.com">branierarthur@gmail.com</a>
+          <a id="mail-link">chargement...</a>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">GitHub</div>
-          <a href="https://github.com/arthur-branier" target="_blank">github.com/arthur-branier</a>
+          <a id="gh-link" target="_blank">github.com/arthur-branier</a>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Localisation</div>
           <span>Villeneuve-d'Ascq (59)</span>
         </div>
         <div class="contact-item">
-          <div class="contact-item-label">Disponibilité</div>
+          <div class="contact-item-label">Disponibilite</div>
           <span>Stage 2025</span>
         </div>
       </div>
@@ -490,7 +270,33 @@
   </main>
 
   <footer>
-    © 2025 Arthur — Construit à la main, hébergé sur GitHub Pages
+    2025 Arthur Branier — GitHub Pages
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-stati
+  <script>
+    // Liens projets
+    var links = {
+      p1: "https://github.com/arthur-branier/archlinux-hyprland-setup",
+      p2: "https://github.com/arthur-branier/game-streaming",
+      p3: "https://github.com/arthur-branier",
+      p4: "https://github.com/arthur-branier/ia-locale"
+    };
+    for (var id in links) {
+      var el = document.getElementById(id);
+      if (el) el.href = links[id];
+    }
+
+    // Email
+    var u = "branierarthur";
+    var d = "gmail" + "." + "com";
+    var ml = document.getElementById("mail-link");
+    ml.href = "mailto:" + u + "@" + d;
+    ml.textContent = u + "@" + d;
+
+    // GitHub
+    var gh = document.getElementById("gh-link");
+    gh.href = "https://github.com/arthur-branier";
+  </script>
+
+</body>
+</html>
