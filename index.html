@@ -61,9 +61,6 @@
     .skill-cell-label { font-family: var(--mono); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; }
     .skill-item { margin-bottom: .65rem; }
     .skill-item-name { font-size: .82rem; color: var(--text); margin-bottom: .25rem; }
-    .skill-bar-track { height: 2px; background: var(--border); border-radius: 2px; width: 100%; }
-    .skill-bar-fill { height: 2px; border-radius: 2px; background: var(--accent); }
-    .skill-level { font-family: var(--mono); font-size: .58rem; color: var(--muted); letter-spacing: .06em; margin-top: .18rem; }
 
     .projects-list { display: flex; flex-direction: column; gap: 1px; }
     .project-card { background: var(--surface); border: 1px solid var(--border); padding: 1.8rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; text-decoration: none; transition: border-color .2s, background .2s; cursor: pointer; }
@@ -129,8 +126,8 @@
       </div>
       <h1>Arthur Branier<br /><span>Étudiant en informatique</span></h1>
       <p class="hero-sub">
-        En BTS CIEL, je touche à pas mal de choses : du C++, des réseaux, de l'électronique.
-        En dehors de l'école, je bidouille sous Linux et j'essaie des trucs qui m'intéressent.
+        En BTS CIEL, je travaille sur du C++, des réseaux et de l'électronique.
+        En dehors de l'école, j'explore Linux et je monte des projets perso qui m'apprennent des choses concrètes.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">Voir les projets</a>
@@ -144,17 +141,18 @@
     <section id="about">
       <p class="section-label">À propos</p>
       <p>
-        Je suis en première année de <strong>BTS CIEL option A</strong> à Lille.
-        La formation couvre la cybersécurité, les réseaux, l'électronique et la programmation.
+        Je suis en première année de <strong>BTS CIEL option A</strong> à Ozanam (Lille), en <strong>reconversion professionnelle</strong>.
+        J'ai choisi cette formation parce que l'informatique et les réseaux m'attiraient vraiment — pas par défaut.
+        Le programme couvre la cybersécurité, les réseaux, l'électronique et la programmation.
       </p>
       <p>
         À l'école on utilise Debian, ce qui m'a donné envie d'aller plus loin sur Linux.
-        J'ai installé <strong>EndeavourOS</strong> et monté ma config <strong>Hyprland</strong> entièrement — pas parce que c'était utile au départ, mais parce que je voulais comprendre comment ça marche vraiment.
-        Depuis c'est mon environnement principal.
+        J'ai installé <strong>EndeavourOS</strong> et configuré <strong>Hyprland</strong> entièrement — gestion du GPU hybride AMD/NVIDIA, dotfiles, environnement complet.
+        Pas parce que c'était utile au départ, mais parce que je voulais comprendre comment ça fonctionne vraiment.
       </p>
       <p>
-        Je cherche un <strong>stage</strong> pour mettre en pratique ce que j'apprends,
-        dans un environnement où il y a de vraies choses à faire.
+        Je cherche un <strong>stage de 6 semaines</strong> (mi-mai à fin juin) pour mettre en pratique ce que j'apprends,
+        dans un environnement avec de vraies contraintes techniques.
       </p>
     </section>
 
@@ -168,18 +166,15 @@
           <div class="skill-cell-label">Systèmes</div>
           <div class="skill-item">
             <div class="skill-item-name">Linux (EndeavourOS)</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:45%"></div></div>
-            <div class="skill-level">Débutant+</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Env. principal — configuration complète</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Hyprland / Wayland</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:40%"></div></div>
-            <div class="skill-level">Débutant+</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">GPU hybride AMD/NVIDIA, dotfiles</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Bash / Shell</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:30%"></div></div>
-            <div class="skill-level">Débutant</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Scripts basiques — en apprentissage</div>
           </div>
         </div>
 
@@ -187,13 +182,11 @@
           <div class="skill-cell-label">Programmation</div>
           <div class="skill-item">
             <div class="skill-item-name">C++ (POO)</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:35%"></div></div>
-            <div class="skill-level">Débutant</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Classes, pointeurs, héritage — cours BTS</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Algorithmique</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:30%"></div></div>
-            <div class="skill-level">Débutant</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Bases — cours BTS</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Git / GitHub</div>
@@ -205,8 +198,7 @@
           <div class="skill-cell-label">Réseaux</div>
           <div class="skill-item">
             <div class="skill-item-name">Cisco Packet Tracer</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:30%"></div></div>
-            <div class="skill-level">Débutant</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Exercices pratiques — cours BTS</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">TCP/IP, UDP</div>
@@ -237,19 +229,16 @@
         <div class="skill-cell">
           <div class="skill-cell-label">Outils</div>
           <div class="skill-item">
-            <div class="skill-item-name">CodeLite</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:40%"></div></div>
-            <div class="skill-level">Débutant+</div>
+            <div class="skill-item-name">CodeLite / VS Code</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">IDE principal — projets C++ BTS</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Docker</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:25%"></div></div>
-            <div class="skill-level">Débutant</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Déploiement basique — projet IA locale</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Tailscale</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:35%"></div></div>
-            <div class="skill-level">Débutant</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">VPN mesh — accès distant perso</div>
           </div>
         </div>
 
@@ -257,13 +246,11 @@
           <div class="skill-cell-label">Langue</div>
           <div class="skill-item">
             <div class="skill-item-name">Français</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:100%"></div></div>
-            <div class="skill-level">Natif</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Natif</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Anglais technique</div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%"></div></div>
-            <div class="skill-level">B2</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">B2 — lecture doc technique courante</div>
           </div>
         </div>
 
@@ -282,7 +269,7 @@
             <div class="project-title">Setup Linux — EndeavourOS + Hyprland</div>
             <div class="project-desc">
               J'utilisais déjà Debian à l'école et j'avais envie d'essayer autre chose que Windows.
-              J'ai installé EndeavourOS et configuré Hyprland from scratch — gestion du GPU hybride AMD/NVIDIA,
+              J'ai installé EndeavourOS et configuré Hyprland entièrement — gestion du GPU hybride AMD/NVIDIA,
               dotfiles, scripts. Ça m'a pas mal appris sur comment Linux fonctionne réellement.
             </div>
             <div class="project-tags">
