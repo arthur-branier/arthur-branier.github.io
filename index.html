@@ -119,17 +119,15 @@
   <main>
 
     <section id="hero">
-      <p class="hero-eyebrow">BTS CIEL option A — Lille</p>
+      <p class="hero-eyebrow">Villeneuve-d'Ascq (59) · Stage OVH Cloud — mai 2026</p>
       <div class="status-badge">
         <span class="status-dot"></span>
         &gt; disponible pour un stage — mi-mai à fin juin 2026
       </div>
-      <h1>Arthur Branier<br /><span>Étudiant en BTS Cybersécurité, Informatique
-et Réseaux, Electronique option A
-informatique et réseaux</span></h1>
+      <h1>Arthur Branier<br /><span>BTS CIEL option A — Informatique &amp; Réseaux</span></h1>
       <p class="hero-sub">
         En BTS CIEL, je travaille sur du C++, des réseaux et de l'électronique.
-        En dehors de l'école, j'explore Linux et je monte des projets perso qui m'apprennent des choses concrètes.
+        En dehors, je gère un homelab Linux et je monte des projets qui m'apprennent des choses concrètes.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">Voir les projets</a>
@@ -149,8 +147,8 @@ informatique et réseaux</span></h1>
       </p>
       <p>
         À l'école on utilise Debian, ce qui m'a donné envie d'aller plus loin sur Linux.
-        J'ai installé <strong>EndeavourOS</strong> et configuré <strong>Hyprland</strong> entièrement — gestion du GPU hybride AMD/NVIDIA, dotfiles, environnement complet.
-        Pas parce que c'était utile au départ, mais parce que je voulais comprendre comment ça fonctionne vraiment.
+        J'utilise <strong>CachyOS + KDE</strong> comme environnement principal et je gère un <strong>homelab Docker</strong> — Ollama avec accélération GPU, Open WebUI, AdGuard Home, Tailscale.
+        C'est là que j'apprends le plus concrètement.
       </p>
       <p>
         Je cherche un <strong>stage de 6 semaines</strong> (mi-mai à fin juin) pour mettre en pratique ce que j'apprends,
@@ -167,16 +165,16 @@ informatique et réseaux</span></h1>
         <div class="skill-cell">
           <div class="skill-cell-label">Systèmes</div>
           <div class="skill-item">
-            <div class="skill-item-name">Linux (EndeavourOS)</div>
-            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Env. principal — configuration complète</div>
+            <div class="skill-item-name">Linux (CachyOS / Arch)</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Env. principal — admin quotidienne</div>
           </div>
           <div class="skill-item">
-            <div class="skill-item-name">Hyprland / Wayland</div>
-            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">GPU hybride AMD/NVIDIA, dotfiles</div>
+            <div class="skill-item-name">KDE Plasma / Wayland</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">NVIDIA RTX 3050 + CUDA</div>
           </div>
           <div class="skill-item">
-            <div class="skill-item-name">Bash / Shell</div>
-            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Scripts basiques — en apprentissage</div>
+            <div class="skill-item-name">Fish / Bash</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Scripts, fonctions, automatisation</div>
           </div>
         </div>
 
@@ -235,8 +233,8 @@ informatique et réseaux</span></h1>
             <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">IDE principal — projets C++ BTS</div>
           </div>
           <div class="skill-item">
-            <div class="skill-item-name">Docker</div>
-            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Déploiement basique — projet IA locale</div>
+            <div class="skill-item-name">Docker / Portainer</div>
+            <div class="skill-item-name" style="font-size:.75rem; color:var(--muted); margin-top:.1rem;">Homelab — stack IA + monitoring</div>
           </div>
           <div class="skill-item">
             <div class="skill-item-name">Tailscale</div>
@@ -268,18 +266,18 @@ informatique et réseaux</span></h1>
         <a class="project-card" id="p1" target="_blank">
           <div>
             <div class="project-number">01</div>
-            <div class="project-title">Setup Linux — EndeavourOS + Hyprland</div>
+            <div class="project-title">Setup Linux — CachyOS + homelab Docker</div>
             <div class="project-desc">
-              J'utilisais déjà Debian à l'école et j'avais envie d'essayer autre chose que Windows.
-              J'ai installé EndeavourOS et configuré Hyprland entièrement — gestion du GPU hybride AMD/NVIDIA,
-              dotfiles, scripts. Ça m'a pas mal appris sur comment Linux fonctionne réellement.
+              Migration complète vers Linux comme OS principal. Configuration GPU NVIDIA RTX 3050 avec CUDA,
+              gestion de services systemd, et montage d'un homelab Docker — Ollama, Open WebUI, AdGuard, Tailscale.
+              Plusieurs itérations (EndeavourOS → CachyOS) qui m'ont appris comment Linux fonctionne vraiment.
             </div>
             <div class="project-tags">
               <span class="tag">Linux</span>
-              <span class="tag">Hyprland</span>
-              <span class="tag">Wayland</span>
-              <span class="tag">Bash</span>
+              <span class="tag">CachyOS</span>
+              <span class="tag">Docker</span>
               <span class="tag">NVIDIA</span>
+              <span class="tag">CUDA</span>
             </div>
           </div>
           <div class="project-arrow">&#x2197;</div>
@@ -327,8 +325,8 @@ informatique et réseaux</span></h1>
             <div class="project-number">04</div>
             <div class="project-title">IA locale — Ollama + Open WebUI + Docker</div>
             <div class="project-desc">
-              Stack d'IA entièrement en local : Ollama comme backend pour faire tourner des modèles LLM,
-              Open WebUI dans Docker comme interface, et Tailscale pour y accéder depuis mon téléphone à distance.
+              Stack d'IA entièrement en local : Ollama avec accélération GPU (RTX 3050, CUDA) pour faire tourner des LLMs,
+              Open WebUI dans Docker comme interface, et Tailscale pour y accéder depuis n'importe où à distance.
             </div>
             <div class="project-tags">
               <span class="tag">Ollama</span>
