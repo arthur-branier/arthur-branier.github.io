@@ -338,6 +338,46 @@
           <div class="project-arrow">&#x2197;</div>
         </a>
 
+        <a class="project-card" id="p5" target="_blank">
+          <div>
+            <div class="project-number">05</div>
+            <div class="project-title">Infrastructure réseau — AdGuard + Vaultwarden + Monitoring</div>
+            <div class="project-desc">
+              Stack de sécurité réseau maison déployée sur Docker : AdGuard Home comme DNS sinkhole (580k règles de filtrage,
+              clients nommés par appareil), Vaultwarden (Bitwarden self-hosted) avec TLS mkcert, Uptime Kuma v2 pour le
+              monitoring de disponibilité. Firewall iptables avec chaîne DOCKER-USER pour isoler les services.
+            </div>
+            <div class="project-tags">
+              <span class="tag">AdGuard</span>
+              <span class="tag">DNS</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Sécurité</span>
+              <span class="tag">iptables</span>
+            </div>
+          </div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+
+        <a class="project-card" id="p6" target="_blank">
+          <div>
+            <div class="project-number">06</div>
+            <div class="project-title">Backup automatisé — Kopia + systemd timers</div>
+            <div class="project-desc">
+              Mise en place d'une stratégie de sauvegarde automatisée : Kopia (backup chiffré AES-256 + déduplication)
+              déclenché chaque nuit par un timer systemd, rotation 14j/4sem/3mois. Backup Vaultwarden en parallèle
+              via script Docker. Exploration de la gestion du cycle de vie des données.
+            </div>
+            <div class="project-tags">
+              <span class="tag">Kopia</span>
+              <span class="tag">systemd</span>
+              <span class="tag">Bash</span>
+              <span class="tag">Chiffrement</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+          <div class="project-arrow">&#x2197;</div>
+        </a>
+
       </div>
     </section>
 
